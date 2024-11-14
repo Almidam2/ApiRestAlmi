@@ -272,6 +272,17 @@ public function deleteTipo(Request $request, int $id): Response
         throw $this->createNotFoundException('El producto no existe');
     }
 
+    // Buscar tickets de compra relacionados con el producto
+    $ticketsCompra = $this->entityManager->getRepository(TicketCompra::class)->findBy(['producto' => $producto]);
+
+    // Verificar si alguno de estos tickets tiene una venta asociada
+    foreach ($ticketsCompra as $ticket) {
+        if ($ticket->getVenta() !== null) {
+            $this->addFlash('error', 'No es posible eliminar el producto porque tiene ventas relacionadas.');
+            return $this->redirectToRoute('productos');
+        }
+    }
+
     // 1. Eliminar entradas en la tabla `consola` relacionadas con el producto
     $consolas = $this->entityManager->getRepository(Consola::class)->findBy(['producto' => $producto]);
     foreach ($consolas as $consola) {
@@ -295,6 +306,8 @@ public function deleteTipo(Request $request, int $id): Response
 
     return $this->redirectToRoute('productos');
 }
+
+
 
 
 
