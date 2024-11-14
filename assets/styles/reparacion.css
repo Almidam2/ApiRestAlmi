@@ -1,0 +1,99 @@
+/* Estilo para el sidebar */
+.sidebar {
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #0d0d0e; /* Color de fondo oscuro */
+    padding-top: 20px;
+    color: #ecf0f1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Encabezado del sidebar */
+.sidebar h2 {
+    color: #007BFF; /* Color azul para resaltar */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Lista de enlaces */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Ocupa todo el ancho del sidebar */
+}
+
+.sidebar ul li {
+    width: 100%;
+    border-bottom: 1px solid #34495e; /* Línea de separación */
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    display: block;
+    font-size: 16px;
+    padding: 15px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto hover para enlaces */
+.sidebar ul li a:hover {
+    background-color: #34495e; /* Fondo de color gris oscuro */
+    color: #007BFF; /* Color de texto azul */
+    border-radius: 5px; /* Bordes redondeados para un toque moderno */
+}
+
+/* Estilo para iconos (opcional) */
+.sidebar ul li a i {
+    margin-right: 10px;
+    color: #007BFF; /* Color del icono */
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+/* Estilo para el contenido principal */
+.main-content {
+    margin-left: 240px; /* Espacio para el sidebar */
+    padding: 20px;
+}
+
+/* Estilo para la tabla de reparaciones */
+.reparacion-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.reparacion-table th, .reparacion-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center; /* Centrar el contenido de las celdas */
+    vertical-align: middle; /* Asegurar que el contenido esté centrado verticalmente */
+}
+
+.reparacion-table th {
+    background-color: #007BFF;
+    color: white;
+    text-transform: uppercase;
+}
+
+.reparacion-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.reparacion-table tr:hover {
+    background-color: #f1f1f1;
+}

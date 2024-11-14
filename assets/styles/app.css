@@ -1,0 +1,113 @@
+/* Fondo oscuro de página */
+body {
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor de login más ancho */
+.login-container {
+    max-width: 600px;
+    padding: 50px 100px; /* Espaciado adicional para un contenedor amplio */
+    border-radius: 12px;
+    background: #1f1f1f;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+.login-container h2 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Grupo de formulario */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* Etiquetas de formulario */
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #b0b0b0;
+    text-align: left;
+}
+
+/* Campos de entrada */
+.form-group input {
+    width: 100%;
+    padding: 16px; /* Tamaño más grande */
+    box-sizing: border-box;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    font-size: 18px; /* Texto más grande */
+}
+
+/* Estilo para mensajes de error */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Botón de login con efecto de brillo */
+button {
+    width: 100%;
+    padding: 16px; /* Tamaño más grande */
+    background: linear-gradient(45deg, #4e9bff, #007bff);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px; /* Texto más grande */
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #6baeff, #1a90ff);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Pie de página */
+.footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.footer a {
+    color: #4e9bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

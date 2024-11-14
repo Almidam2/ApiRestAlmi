@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link href="{{ asset('styles/servicios.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+                <li><a href="{{ path('productos') }}">Productos</a></li>
+                <li><a href="{{ path('ventas') }}">Ventas</a></li>
+                <li><a href="{{ path('alquileres') }}">Alquileres</a></li>
+                <li><a href="{{ path('reparaciones') }}">Reparaciones</a></li>
+            </ul>
+            <div class="logout-item">
+                <a href="{{ path('app_logout') }}" class="logout-link">Logout</a>
+            </div>
+        </div>
+    </header>
+    <div class="product-list-container">
+        <h2>Lista de Productos</h2>
+
+        <form method="get" action="{{ path('productos') }}">
+            <input type="text" name="search" placeholder="Buscar por nombre" value="{{ app.request.query.get('search') }}">
+            <select name="filter" onchange="this.form.submit()">
+                <option value="">Todos</option>
+                <option value="consolas" {% if app.request.query.get('filter') == 'consolas' %}selected{% endif %}>Consolas</option>
+                <option value="juegos" {% if app.request.query.get('filter') == 'juegos' %}selected{% endif %}>Juegos</option>
+                <option value="otros_dispositivos" {% if app.request.query.get('filter') == 'otros_dispositivos' %}selected{% endif %}>Otros Dispositivos</option>
+            </select>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in pagination.items %}
+                <tr>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>
+                        <img src="https://albertox3.duckdns.org/ws/producto/getPic/{{ producto.id }}" alt="{{ producto.nombre }}" class="product-image" width="100" height="100">
+                    </td>
+                    <td class="actions">
+                        <a href="{{ path('producto_edit', {'id': producto.id}) }}" class="edit-btn">✎</a>
+                        <a href="{{ path('producto_delete_tipo', {'id': producto.id}) }}" class="delete-btn" onclick="return confirm('¿Estás seguro de eliminar este producto?')">🗑️</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">No hay productos disponibles.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <a href="{{ path('api_create_producto') }}" class="styled-button">
+                Añadir Producto
+            </a>
+        </div>
+
+        <div class="pagination">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+</body>
+</html>

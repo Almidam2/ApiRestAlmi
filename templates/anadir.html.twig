@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Producto</title>
+    <link rel="stylesheet" href="{{ asset('styles/anadir.css') }}">
+</head>
+<body>
+    <div class="product-add-container">
+        <h2>Añadir Producto</h2>
+
+        {% for message in app.flashes('success') %}
+            <div class="flash-message success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <form action="{{ path('api_create_producto') }}" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio" required>
+            </div>
+            <div>
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" required></textarea>
+            </div>
+            <div>
+                <label for="tipo">Tipo de Producto:</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="juego">Juego</option>
+                    <option value="consola">Consola</option>
+                    <option value="otro_dispositivo">Otro Dispositivo</option>
+                </select>
+            </div>
+            <div id="otro-dispositivo-tipo-container" style="display: none;">
+                <label for="otro-dispositivo-tipo">Tipo de Dispositivo:</label>
+                <select id="otro-dispositivo-tipo" name="otro_dispositivo_tipo">
+                    <option value="movil">Móvil</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="ordenador">Ordenador</option>
+                </select>
+            </div>
+            <div>
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" required>
+            </div>
+            <button type="submit">Añadir Producto</button>
+        </form>
+    </div>
+</body>
+</html>

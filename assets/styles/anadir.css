@@ -1,0 +1,167 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.product-add-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-add-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+}
+
+.product-add-container form div {
+    margin-bottom: 20px;
+}
+
+.product-add-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.product-add-container input[type="text"],
+.product-add-container input[type="number"],
+.product-add-container textarea,
+.product-add-container input[type="file"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.product-add-container input[type="text"]:focus,
+.product-add-container input[type="number"]:focus,
+.product-add-container textarea:focus,
+.product-add-container input[type="file"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.product-add-container button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.product-add-container button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.product-add-container button:active {
+    background-color: #004494;
+    transform: translateY(0);
+}
+
+.product-add-container .error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.product-add-container .success-message {
+    color: #28a745;
+    font-size: 14px;
+    margin-top: 10px;
+}
+/* Contenedor del formulario de añadir producto */
+.product-add-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.product-add-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-add-container form div {
+    margin-bottom: 15px;
+}
+
+.product-add-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.product-add-container input[type="text"],
+.product-add-container input[type="number"],
+.product-add-container textarea,
+.product-add-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.product-add-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.product-add-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el mensaje flash */
+.flash-message {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}

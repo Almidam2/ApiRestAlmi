@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alquileres</title>
+    <link href="{{ asset('styles/servicios.css') }}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <ul>
+                <li><a href="{{ path('productos') }}">Productos</a></li>
+                <li><a href="{{ path('ventas') }}">Ventas</a></li>
+                <li><a href="{{ path('alquileres') }}">Alquileres</a></li>
+                <li><a href="{{ path('reparaciones') }}">Reparaciones</a></li>
+            </ul>
+            <div class="logout-item">
+                <a href="{{ path('app_logout') }}" class="logout-link">Logout</a>
+            </div>
+        </div>
+    </header>
+    <div class="product-list-container">
+        <h2>Lista de Alquileres</h2>
+
+        <form method="get" action="{{ path('alquileres') }}">
+            <input type="text" name="search" placeholder="Buscar por nombre de usuario" value="{{ app.request.query.get('search') }}">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alquiler in pagination.items %}
+                <tr>
+                    <td>{{ alquiler.id }}</td>
+                    <td>{{ alquiler.usuario.nombre }}</td>
+                    <td>{{ alquiler.fechaInicio|date('Y-m-d H:i') }}</td>
+                    <td>{{ alquiler.fechaFin|date('Y-m-d H:i') }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">No hay alquileres disponibles.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+</body>
+</html>
